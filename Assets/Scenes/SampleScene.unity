@@ -534,7 +534,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1123308411}
+      - m_Target: {fileID: 1123308415}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
         m_MethodName: BuyUpgrade
         m_Mode: 1
@@ -1050,10 +1050,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1123308409}
-  - component: {fileID: 1123308411}
   - component: {fileID: 1123308413}
   - component: {fileID: 1123308412}
   - component: {fileID: 1123308414}
+  - component: {fileID: 1123308416}
+  - component: {fileID: 1123308415}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1076,22 +1077,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1123308411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123308408}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b34e486628969884c8dac03a24d3e59a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clicker: {fileID: 0}
-  upgradeCost: 50
-  clickIncrease: 2
-  upgradeButtonText: {fileID: 2064921156}
 --- !u!114 &1123308412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1099,7 +1084,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123308408}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
   m_Name: 
@@ -1115,7 +1100,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123308408}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
   m_Name: 
@@ -1138,7 +1123,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123308408}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
   m_Name: 
@@ -1147,6 +1132,37 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
     - {fileID: 11400000, guid: 39d4776516cee384cb93ac43dde29f18, type: 2}
+--- !u!114 &1123308415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123308408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34e486628969884c8dac03a24d3e59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clicker: {fileID: 1123308416}
+  upgradeCost: 50
+  clickIncrease: 1
+  upgradeButtonText: {fileID: 2064921156}
+--- !u!114 &1123308416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123308408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eaa380a1d1322e43a453c64b1e9fa52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 53653849}
+  coin: 0
+  clickValue: 1
 --- !u!1 &1358247800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,7 +1305,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2031673891}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1123308416}
+        m_TargetAssemblyTypeName: CoffeeClicker, Assembly-CSharp
+        m_MethodName: OnCoffeeClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2031673891
 MonoBehaviour:
   m_ObjectHideFlags: 0
