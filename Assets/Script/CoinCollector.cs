@@ -1,12 +1,22 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
-public class PlayerData : MonoBehaviour
+public class CoinCollector : MonoBehaviour
 {
     public TextMeshProUGUI coinTxt;
-    private int coin;
-    private int tapCount;
+    public int coin;
+    public int clickValue;
+    [SerializeField] private int earlyCoin;
+    [SerializeField] private int interval;
     private bool isPlaying = false;
+    private bool isAddCoin = false;
+
+    private void Start()
+    {
+        AddCoin();
+        // UpdateCoinText();
+    }
 
     private void OnEnable()
     {
@@ -35,6 +45,7 @@ public class PlayerData : MonoBehaviour
 
     private void Update()
     {
+        UpdateCoinText();
         if (isPlaying)
         {
             TapCount();
@@ -52,11 +63,16 @@ public class PlayerData : MonoBehaviour
             {
                 if (!GameStateManager.Instance.GetUIButton() && !GameStateManager.Instance.GetUIButton())
                 {
-                    coin++;
-                    coinTxt.text = "coin : " + coin.ToString();
+                    coin += clickValue;
+                    SpawnerManager.Instance.SpawnObject();
                 }
             }
         }
+    }
+
+    private void UpdateCoinText()
+    {
+        coinTxt.text = "coin : " + coin.ToString();
     }
 
     public int GetPlayerCoin()
@@ -64,8 +80,28 @@ public class PlayerData : MonoBehaviour
         return coin;
     }
 
-    public void SetPlayerCoin(int currentCoin)
+    public void SetPlayerCoin(int addCoin)
     {
-        coin = currentCoin;
+        clickValue += addCoin;
+    }
+
+    public void AddCoin()
+    {
+        if (!isAddCoin)
+        {
+            StartCoroutine(AutoAddCoinCoroutine());
+            isAddCoin = false;
+        }
+    }
+
+    IEnumerator AutoAddCoinCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(interval);
+            coin += earlyCoin;
+            isAddCoin = true;
+            // Debug.Log("Coin: " + coin); // Debug agar bisa terlihat di Console
+        }
     }
 }

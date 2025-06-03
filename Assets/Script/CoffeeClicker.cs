@@ -12,6 +12,7 @@ public class CoffeeClicker : MonoBehaviour
     public void OnCoffeeClicked()
     {
         coin += clickValue;
+        
         //UpdateUI();
     }
 

@@ -20,8 +20,8 @@ public class GameStateManager : MonoBehaviour
     [Header("UI Settings")]
     [SerializeField] private GraphicRaycaster graphicRaycaster;
     [SerializeField] private LayerMask uiLayerMask; // Layer mask untuk UI elements
-    private bool hitUIButton;
-    private bool hitUIPanel;
+    [SerializeField] private bool hitUIButton;
+    [SerializeField] private bool hitUIPanel;
 
     private void Awake()
     {
